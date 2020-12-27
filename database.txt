@@ -1,0 +1,2 @@
+{'email': 'mail@mail.com', 'subject': 'Some subject placeholder', 'message': 'Some text here.'}
+some@mail.com, Subject regarding, some text about texting
