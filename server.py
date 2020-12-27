@@ -1,11 +1,16 @@
-import os
-from flask import Flask, render_template, send_from_directory
-app = Flask(__name__)
+from flask import Flask, render_template, url_for, request, redirect
 
+
+app = Flask(__name__)
+# Route for page navigation.
 @app.route('/<string:page_name>')
 def html_page(page_name):
     return render_template(page_name)
-
+# Route to handle the POST/GET events.
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
-    return 'The form has been submitted.'
+    if request.method == 'POST':
+        data = request.form.to_dict()
+        return redirect('/thankyou.html')
+    else:
+        return 'Something went wrong!'
